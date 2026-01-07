@@ -48,7 +48,7 @@ const Signin = () => {
         email: "",
         password: "",
       });
-      
+
       navigate("/login");
     } catch (error) {
       setError(error.message);
@@ -85,7 +85,6 @@ const Signin = () => {
       <input
         type="submit"
         value={loading ? "Signing In..." : "Sign In"}
-        // onSubmit={handleSubmit}
       />
     </form>
   );
