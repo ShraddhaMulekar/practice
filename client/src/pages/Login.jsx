@@ -14,7 +14,7 @@ const Login = () => {
   const inputHandler = (e) => {
     setForms({
       ...forms,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -25,13 +25,13 @@ const Login = () => {
 
     try {
       let res = await fetch(`${api}/user/login`, {
-        method: POST,
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(forms),
       });
-      let data = res.json();
+      let data = await res.json();
       console.log(data);
 
       if (!data.success) {
