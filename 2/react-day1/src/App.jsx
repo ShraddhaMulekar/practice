@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import Couter from './components/Couter'
+// import Button from './components/Button'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Couter />
+      {/* <Button /> */}
     </>
   )
 }
