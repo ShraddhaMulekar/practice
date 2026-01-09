@@ -9,6 +9,7 @@ import About from './pages/About'
 import Navbar from './pages/Navbar'
 import NotFound from './pages/NotFound'
 import UserDetail from './pages/UserDetail'
+import CleanupDemo from './components/CleanupDemo'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Route path='/form' element={<Form />} />
       <Route path='/users' element={<User />} />
       <Route path='/user/:id' element={<UserDetail />} />
+      <Route path='demo' element={<CleanupDemo />} />
       <Route path="*" element={<NotFound />} /> 
     </Routes>
     </>
