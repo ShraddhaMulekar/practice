@@ -20,7 +20,7 @@ const Couter = () => {
             <button text="Decrement" onClick={handleDec}>-</button> */}
 
             <Button text="Increment" onClick={handleInc} />
-            <Button text="Decrement" onClick={handleDec} />
+            <Button text="Decrement" onClick={handleDec} disabled={count===0} />
 
         </div>
 
