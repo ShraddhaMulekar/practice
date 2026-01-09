@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UserDetail = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
 
   const fetchUsersDetail = async () => {
     try {
@@ -29,6 +30,7 @@ const UserDetail = () => {
   return (
     <div>
       <h2>User Detail</h2>
+      <button onClick={()=>navigate(-1)}>Go Back</button>
       <h3>
         {user?.name?.firstname} {user?.name?.lastname}
       </h3>
