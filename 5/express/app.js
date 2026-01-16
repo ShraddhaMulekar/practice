@@ -14,6 +14,15 @@ app.get("/user/:id", (req, res)=>{
     })
 })
 
+app.get("/headers", (req, res) => {
+  console.log(req.headers);
+  res.json({
+    contentType: req.headers["content-type"],
+    userAgent: req.headers["user-agent"]
+  });
+});
+
+
 app.listen(port, ()=>{
     console.log(`server start on http://localhost:${port}`)
 })
