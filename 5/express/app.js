@@ -6,6 +6,7 @@ const port = 3000
 app.use(express.json())
 app.use(morgan("dev"))
 app.use(morgan("combined"))
+app.use(morgan("tiny"))
 
 const logger = (req, res, next)=>{
     console.log(`Method: ${req.method}, URL: ${req.url}`);
