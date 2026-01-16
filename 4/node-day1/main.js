@@ -2,6 +2,7 @@ const math = require("./modules/math")
 const fs = require("fs")
 const path = require("path")
 const os = require("os")
+const http = require("http")
 
 console.log(math.add(5, 2))
 console.log(math.sub(6, 4))
@@ -27,3 +28,13 @@ console.log(path.join(__dirname, "filename", "test.txt"))
 // os
 console.log(os.platform())
 console.log(os.freemem())
+
+//http 
+const server = http.createServer((req, res)=>{
+    res.writeHead(200, {"content-type":"text/plain"})
+    res.end("hello from node server")
+})
+
+server.listen(4000, ()=>{
+    console.log("server is running on http://localhost:4000")
+})
