@@ -22,6 +22,10 @@ app.get("/headers", (req, res) => {
   });
 });
 
+app.post("/body", (req, res)=>{
+    console.log(req.body)
+    res.send(req.body)
+})
 
 app.listen(port, ()=>{
     console.log(`server start on http://localhost:${port}`)
