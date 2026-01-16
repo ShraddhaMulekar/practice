@@ -1,5 +1,6 @@
 const math = require("./modules/math")
 const fs = require("fs")
+const path = require("path")
 
 console.log(math.add(5, 2))
 console.log(math.sub(6, 4))
@@ -18,3 +19,6 @@ fs.readFile("test.text", "utf8", (err, data)=>{
     if (err) throw err
     console.log("data from read file:", data)
 })
+
+// path 
+console.log(path.join(__dirname, "filename", "test.txt"))
