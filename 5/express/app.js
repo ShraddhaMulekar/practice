@@ -46,7 +46,13 @@ const checkAuth = (req, res, next)=>{
         return res.json({msg:"unauthorized!"})
     }
     next()
+
+    
 }
+
+app.use((err, req, res, next)=>{
+    res.json({msg:err.message})
+})
 
 app.get("/profile",checkAuth, (req, res)=>{
     res.send("Profile data!")
