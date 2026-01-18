@@ -38,6 +38,20 @@ app.post("/body", (req, res)=>{
     res.send(req.body)
 })
 
+//Route-Level Middleware
+const checkAuth = (req, res, next)=>{
+    const token = req.headers.authorization
+
+    if(!token){
+        return res.json({msg:"unauthorized!"})
+    }
+    next()
+}
+
+app.get("/profile",checkAuth, (req, res)=>{
+    res.send("Profile data!")
+})
+
 app.listen(port, ()=>{
     console.log(`server start on http://localhost:${port}`)
 })
