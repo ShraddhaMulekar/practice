@@ -50,11 +50,11 @@ const checkAuth = (req, res, next)=>{
     
 }
 
-app.use((err, req, res, next)=>{
+const otherMiddle = app.use((err, req, res, next)=>{
     res.json({msg:err.message})
 })
 
-app.get("/profile",checkAuth, (req, res)=>{
+app.get("/profile",checkAuth, otherMiddle, (req, res)=>{
     res.send("Profile data!")
 })
 
