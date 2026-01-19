@@ -3,12 +3,8 @@ const asyncHandler = require("express-async-handler")
 
 let app = express()
 
-app.get("/user", asyncHandler(async(req,res)=>{
-    try {
-        res.send("welcome from async handler!")
-    } catch (error) {
-        throw new Error("Async Error!")
-    }
+app.get("/user", asyncHandler(async (req,res) => {
+    res.send("welcome from async handler!")
 }))
 
 app.listen(3030, ()=>{
