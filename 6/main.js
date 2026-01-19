@@ -1,8 +1,14 @@
 const express = require("express")
 const asyncHandler = require("express-async-handler")
 const multer = require("multer")
+const helmet = require("helmet")
 
 let app = express()
+app.use(helmet())
+
+app.get("/", (req, res)=>{
+    res.send("Secure App")
+})
 
 app.get("/user", asyncHandler(async (req,res) => {
     res.send("welcome from async handler!")
