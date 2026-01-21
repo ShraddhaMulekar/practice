@@ -1,36 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dynamic people details</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="cont"></div>
-</body>
+  </body>
 </html>
 
 <script>
-    const people = [
-        { name: "Alice", age: 30, place: "New York" },
-        { name: "Bob", age: 25, place: "Los Angeles" },
-        { name: "Charlie", age: 35, place: "Chicago" }
-    ];
+  const people = [
+    { name: "Alice", age: 30, place: "New York" },
+    { name: "Bob", age: 25, place: "Los Angeles" },
+    { name: "Charlie", age: 35, place: "Chicago" },
+  ];
 
-    const container = document.getElementById("cont");
+  const container = document.getElementById("cont");
 
-    people.forEach(person=>{
+  // people.forEach(person=>{
 
-        let divtag = document.createElement("div");
-        let head = document.createElement("h2");
-        let ageTag = document.createElement("p");
-        let place = document.createElement("p")
+  //     let divtag = document.createElement("div");
+  //     let head = document.createElement("h2");
+  //     let ageTag = document.createElement("p");
+  //     let place = document.createElement("p")
 
-        head.innerText = person.name;
-        ageTag.innerText = `Age: ${person.age}`;
-        place.innerText = `Place: ${person.place}`;
+  //     head.innerText = person.name;
+  //     ageTag.innerText = `Age: ${person.age}`;
+  //     place.innerText = `Place: ${person.place}`;
 
-        divtag.append(head, ageTag, place);
-        container.append(divtag);
-    })
+  //     divtag.append(head, ageTag, place);
+  //     container.append(divtag);
+  // })
+
+  people.forEach((person) => {
+    let card = document.createElement("div");
+    card.innerHTML=`
+                <h2>${person.name}</h2>
+                <p>Age: ${person.age}</p>       
+                <p>Place: ${person.place}</p>
+        `;
+    container.append(card);
+  });
 </script>
