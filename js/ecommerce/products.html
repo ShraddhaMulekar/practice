@@ -23,6 +23,11 @@
   </head>
   <body>
     <h1 id="product">Product List</h1>
+    <select id="selectTag">
+        <option value="">sort by:</option>
+        <option value="lth">Low to high</option>
+        <option value="htl">High to low</option>
+    </select>
     <div id="container"></div>
   </body>
 </html>
@@ -47,7 +52,7 @@
     let card = document.createElement("div");
     card.innerHTML = `
         <h3>${product.name}</h3>
-        <h4>Price: ${product.price}</h4>
+        <h4>Price: $${product.price}</h4>
         <p>Type: ${product.type}</p>
     `
     container.append(card);
