@@ -30,8 +30,8 @@
   products.forEach(product=>{
     let card = document.createElement("div");
     card.innerHTML = `
-        <h2>${product.name}</h2>
-        <p>Price: ${product.price}</p>
+        <h3>${product.name}</h3>
+        <h4>Price: ${product.price}</h4>
         <p>Type: ${product.type}</p>
     `
     container.append(card);
