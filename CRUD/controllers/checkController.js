@@ -3,9 +3,6 @@ import userModel from "../models/user.model.js";
 export const checkController = async (req, res) => {
   try {
     const users = await userModel.find();
-
-    console.log(users);
-
     res.status(200).json({
       message: "Users fetched successfully",
       data: users,
