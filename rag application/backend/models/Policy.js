@@ -5,4 +5,6 @@ const policySchema = new mongoose.Schema({
     embedding: [Number]
 }, {versionKey:false})
 
-export const PolicyModel = mongoose.model("Policy", policySchema)
+const PolicyModel = mongoose.model("Policy", policySchema)
+
+export default PolicyModel;
