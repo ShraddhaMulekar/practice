@@ -3,6 +3,7 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 import { connectDB } from "./config/connectDB.js";
+import { userRouter } from "./route/user.route.js";
 dotenv.config();
 
 const app = express();
@@ -17,9 +18,7 @@ const limiter = rateLimit({
 });
 app.use(limiter)
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
-});
+app.use("/user", userRouter)
 
 app.listen(port, async() => {
     await connectDB()
