@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        #product{
-            text-align:center;
-            color: teal;
-        }
-        #container{
-            display:flex;
-            flex-wrap:wrap;
-        }
-        #container div{
-            border:1px solid black;
-            padding:10px;
-            margin:10px;
-            width:200px;
-        }
+      #product {
+        text-align: center;
+        color: teal;
+      }
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      #container div {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+      }
     </style>
   </head>
   <body>
     <h1 id="product">Product List</h1>
     <select id="selectTag">
-        <option value="">sort by:</option>
-        <option value="lth">Low to high</option>
-        <option value="htl">High to low</option>
+      <option value="">sort by:</option>
+      <option value="lth">Low to high</option>
+      <option value="htl">High to low</option>
     </select>
     <div id="container"></div>
   </body>
@@ -48,13 +48,34 @@
 
   const container = document.getElementById("container");
 
-  products.forEach(product=>{
-    let card = document.createElement("div");
-    card.innerHTML = `
+  function displayProducts(arg) {
+    container.innerHTML = "";
+    arg.forEach((product) => {
+      let card = document.createElement("div");
+      card.innerHTML = `
         <h3>${product.name}</h3>
         <h4>Price: $${product.price}</h4>
         <p>Type: ${product.type}</p>
-    `
-    container.append(card);
-  })
+    `;
+      container.append(card);
+    });
+  }
+  displayProducts(products);
+
+  const selectTag = document.getElementById("selectTag");
+  selectTag.addEventListener("change", function () {
+    let selected = selectTag.value;
+    console.log({ selected });
+
+    let sortedProducts = [...products];
+    console.log({ sortedProducts });
+
+    if (selected === "lth") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    }
+    if (selected === "htl") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+    displayProducts(sortedProducts);
+  });
 </script>
