@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
+import { connectDB } from "./config/connectDB.js";
 dotenv.config();
 
 const app = express();
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.listen(port, () => {
-  console.log(`server started on http://localhost:${port}`);
+app.listen(port, async() => {
+    await connectDB()
+    console.log(`server started on http://localhost:${port}`);
 });
