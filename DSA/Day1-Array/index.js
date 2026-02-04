@@ -1,7 +1,7 @@
 //1. Array Traversal
 
-// let arr = [1,5,6,8,2,4,-1]
-let arr = [1,2,3]
+let arr = [1,5,6,8,2,4,-1]
+// let arr = [1,2,3]
 
 
 for(let i=0; i<arr.length; i++){
@@ -66,4 +66,18 @@ for(let i=1; i<arr.length; i++){
         break
     }
 }
-console.log(isSorted)
+// console.log(isSorted)
+
+//6. Count Even & Odd
+
+let even = 0; odd = 0
+for(let i=0; i<arr.length; i++){
+    // if(arr[i]%2==0) {
+    //     even++
+    // }
+    // else {
+    //     odd++
+    // }
+    (arr[i]%2==0) ? even++ : odd++
+}
+console.log("Even:", even, "Odd:", odd)
