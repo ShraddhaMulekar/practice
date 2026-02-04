@@ -80,4 +80,15 @@ for(let i=0; i<arr.length; i++){
     // }
     (arr[i]%2==0) ? even++ : odd++
 }
-console.log("Even:", even, "Odd:", odd)
+// console.log("Even:", even, "Odd:", odd)
+
+
+//7. Sum & Average
+
+let sum =0
+
+for(let num of arr){
+    sum += num
+}
+let avg = sum/arr.length
+console.log("sum:", sum, "average:", avg)
