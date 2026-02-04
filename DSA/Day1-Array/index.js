@@ -44,5 +44,12 @@ for(let i=0; i<arr.length; i++){
         secondLargest = arr[i]
     }
 }
-console.log("second-Largest:", secondLargest)
-console.log("Largest:", largest)
+// console.log("second-Largest:", secondLargest)
+// console.log("Largest:", largest)
+
+// Reverse an Array
+let x = []
+for(let i = arr.length-1; i >= 0; i-- ){
+    x.push(arr[i])
+}
+console.log("Reverse-Array:", x)
