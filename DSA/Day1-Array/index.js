@@ -1,6 +1,6 @@
 //1. Array Traversal
 
-let arr = [1,5,6,8,2,4,-1]
+let arr = [1,5,6,8,2,4,-1,5,6,8,9]
 // let arr = [1,2,3]
 
 
@@ -91,4 +91,17 @@ for(let num of arr){
     sum += num
 }
 let avg = sum/arr.length
-console.log("sum:", sum, "average:", avg)
+// console.log("sum:", sum, "average:", avg)
+
+//8. Remove Duplicates
+
+let unique = []
+let seen = {}
+
+for(let num of arr){
+    if(!seen[num]){
+        unique.push(num)
+        seen[num]=true
+    }
+}
+console.log(unique)
