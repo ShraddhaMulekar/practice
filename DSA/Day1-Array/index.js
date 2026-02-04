@@ -94,10 +94,8 @@ let avg = sum/arr.length
 // console.log("sum:", sum, "average:", avg)
 
 //8. Remove Duplicates
-
 let unique = []
 let seen = {}
-
 for(let num of arr){
     if(!seen[num]){
         unique.push(num)
