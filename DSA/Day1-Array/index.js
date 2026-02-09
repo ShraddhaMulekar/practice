@@ -1,6 +1,6 @@
 //1. Array Traversal
 
-let arr = [1,5,6,8,2,4,-1,5,6,8,9]
+let arr = [1,5,6,8,2,4,-1,5,6,8,5,9]
 // let arr = [1,2,3]
 
 
@@ -95,7 +95,25 @@ let avg = sum/arr.length
 
 //8. Remove Duplicates
 let unique = []
+let double = []
 let seen = {}
+for(let num of arr){
+    // if(!seen[num]){
+    //     unique.push(num)
+    //     seen[num]=true
+    // }
+
+    // if(seen[num]===undefined){
+    //     unique.push(num);
+    //     seen[num] = 1;
+    // } else{
+    //     seen[num]++
+    // }
+
+    // if(!unique.includes(num)){
+    //     unique.push(num)
+    // }
+}
 for(let num of arr){
     if(!seen[num]){
         unique.push(num)
@@ -103,3 +121,5 @@ for(let num of arr){
     }
 }
 console.log(unique)
+// console.log(double)
+// console.log(seen)
