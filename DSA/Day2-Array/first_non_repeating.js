@@ -16,12 +16,12 @@ for (let num of arr){
 }
 console.log(freq)
 
-let result = 0
+let result = []
 
 for(let i=0; i<arr.length; i++){
     if(freq[arr[i]] === 1){
-        result = arr[i]
-        break
+        result.push(arr[i])
+        // break
     }
 }
 
