@@ -1,4 +1,4 @@
-import { askLLM, client } from "../openAI_client_service/client.js"
+import { askLLM } from "../openAI_client_service/client.js"
 
 export const chatRouterController = async(req, res)=>{
     try {
