@@ -1,7 +1,10 @@
+import { promptTemplates } from "../prompts/promptTemplates.js"
+import { systemPrompts } from "../prompts/systemPrompts.js"
+
 export const buildMessages = (mode=teacher, question)=>{
     const systemMessage = {
         role : "system",
-        content : systemPrompt[mode]
+        content : systemPrompts[mode]
     }
 
     const userMessage = {
