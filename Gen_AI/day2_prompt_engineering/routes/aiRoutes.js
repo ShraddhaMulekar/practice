@@ -1,7 +1,6 @@
 import express from 'express'
+import { aiController } from '../controller/aiController.js'
 
 export const aiRoutes = express.Router()
 
-aiRoutes.get("/", (req, res)=>{
-    res.send("ai route")
-})
+aiRoutes.post("/askai", aiController)
