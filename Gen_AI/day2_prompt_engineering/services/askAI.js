@@ -1,5 +1,7 @@
+import { buildMessages } from "./buildMessages.js"
+
 export const askAI = async(mode, question)=>{
-    const messages = buildMessage(mode, question)
+    const messages = buildMessages(mode, question)
     console.log({messages})
 
     const response = await client.chat.completions.create({
