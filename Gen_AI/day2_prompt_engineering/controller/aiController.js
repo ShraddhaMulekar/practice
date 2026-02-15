@@ -1,3 +1,5 @@
+import { askAI } from "../services/askAI.js"
+
 export const aiController = async(req, res)=>{
     try {
         const {mode, question} = req.body
