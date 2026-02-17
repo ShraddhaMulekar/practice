@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
+import { embeddingRoute } from "./routes/embeddingRoute.js"
 dotenv.config()
 
 const app = express()
@@ -12,6 +13,8 @@ app.use(express.json())
 app.get("/", (req, res)=>{
     res.send("check app!")
 })
+
+app.use("/embedding", embeddingRoute)
 
 app.listen(port, ()=>{
     console.log(`server started on http://localhost:${port}`)
