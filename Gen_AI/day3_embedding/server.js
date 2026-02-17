@@ -9,6 +9,10 @@ const port = process.env.PORT || 3000
 app.use(cors())
 app.use(express.json())
 
+app.get("/", (req, res)=>{
+    res.send("check app!")
+})
+
 app.listen(port, ()=>{
     console.log(`server started on http://localhost:${port}`)
 })
