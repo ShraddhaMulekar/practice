@@ -25,4 +25,13 @@ export const promptTemplates = {
     2. Explain reason
     3. Provide fix
     `,
+
+    mentor: (question) => `
+    Help the learner understand this problem:
+
+    ${question}
+
+    Guide step by step and help them thinking solution.
+    
+    `,
 };
