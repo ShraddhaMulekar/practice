@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import { embeddingRoute } from "./routes/embeddingRoute.js"
+import { loadModel } from "./services/embeddingService.js"
 dotenv.config()
 
 const app = express()
@@ -15,6 +16,8 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/embedding", embeddingRoute)
+
+await loadModel()
 
 app.listen(port, ()=>{
     console.log(`server started on http://localhost:${port}`)

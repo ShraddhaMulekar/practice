@@ -1,5 +1,6 @@
 import { pipeline } from "@xenova/transformers";
-import notes from "../data/notes";
+import {notes} from "../data/notes.js";
+import {cosineSimilarity} from "../utils/similarity.js"
 
 let extractor;
 let noteEmbedding = []; //store embeddings of notes
@@ -24,3 +25,36 @@ export const loadModel = async () => {
 
   console.log("All notes embedded ✅");
 };
+
+
+/* ---------------- SEARCH ---------------- */
+
+export const findSimilarNote = async(query)=>{
+
+    // convert user text → embedding
+    const queryEmbedding = await extractor(query, {
+        pooling : "mean",
+        normalize : true
+    })
+
+    const queryVector = queryEmbedding.data
+
+    let bestScore = -1
+    let bestIndex = -1
+
+    // compare with every note
+
+    noteEmbedding.forEach((noteVector, index)=>{
+        const score = cosineSimilarity(queryVector, noteVector)
+
+        if(score > bestScore){
+            bestScore = score
+            bestIndex = index
+        }
+    })
+
+    return ({
+        note : notes[bestIndex],
+        similarity : bestScore
+    })
+}
