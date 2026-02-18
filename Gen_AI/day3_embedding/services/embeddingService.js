@@ -8,9 +8,9 @@ let noteEmbedding = []; //store embeddings of notes
 // Load model
 
 export const loadModel = async () => {
-  extractor = await pipeline(
-    "feature-extraction", 
-    "Xenova/all-MiniLM-L6-v2"
+  extractor = await pipeline( //pipeline is a helper function from Hugging Face / Xenova transformers.
+    "feature-extraction",     //convert text into embeddings
+    "Xenova/all-MiniLM-L6-v2" //This model is already trained to understand English text and convert it into vectors that capture meaning.
 );
 
   console.log("Model Loaded ✅");
@@ -19,8 +19,8 @@ export const loadModel = async () => {
 
   for (let note of notes) {
     const embedding = await extractor(note, {
-      pooling: "mean",
-      normalize: true,
+      pooling: "mean",  //Averages all token embeddings into one
+      normalize: true,  //Converts vector to unit length
     });
 
     noteEmbedding.push(embedding.data);
