@@ -9,3 +9,11 @@ export const loadModel = async()=>{
         "Xenova/all-MiniLM-L6-v2"
     )
 }
+
+//create embedding
+export const createEmbedding = async(text)=>{
+    const output = await extractor(text, {
+        pooling: "mean",
+        normalize: true
+    })
+}
