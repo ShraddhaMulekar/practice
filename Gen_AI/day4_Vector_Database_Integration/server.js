@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import { uploadRouter } from "./routes/uploadRoute.js"
+import { loadModel } from "./embedding.js"
 dotenv.config()
 
 const app = express()
@@ -15,6 +16,8 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/uploads", uploadRouter)
+
+await loadModel()
 
 app.listen(port, ()=>{
     console.log(`server running on http://localhost:${port}`)

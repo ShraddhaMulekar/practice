@@ -1,7 +1,11 @@
 import { ChromaClient } from "chromadb";
 
-const client = new ChromaClient()
+export const client = new ChromaClient({
+  host: "localhost",
+  port: 8000
+});
 
 export const collection = await client.getOrCreateCollection({
-    name : "documents"
-})
+  name: "documents",
+  embeddingFunction: null
+});
