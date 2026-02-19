@@ -19,10 +19,10 @@ extractor = await pipeline(
     }
   )
    console.log("✅ Model Loaded")
-};
+};      
 
 //create embedding
-export const createEmbedding = async (text) => {
+export const  createEmbedding = async (text) => {
   const output = await extractor(text, {
     pooling: "mean",
     normalize: true,
