@@ -1,7 +1,7 @@
 import fs from "fs"
-import { chunkText } from "./utils/chunkText"
-import { embeddingService } from "./services/embeddingService"
-import { addVectorsToCollection } from "./services/vectorService"
+import { chunkText } from "./utils/chunkText.js"
+import { embeddingService } from "./services/embeddingService.js"
+import { addVectorsToCollection } from "./services/vectorService.js"
 
 const text = fs.readFileSync("./data/documents.txt", "utf-8")
 

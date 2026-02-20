@@ -17,3 +17,16 @@ export const addVectorsToCollection = async (id, text, embeddings) => {
         console.error("Error adding vectors to collection:", error);
     }
 }
+
+//Find similar chunks
+export const searchVectorsDB = async(queryEmbedding)=>{
+    try {
+        const result = await vectorServiceCollection.query({
+            query_embeddings : [queryEmbedding],
+            n_results : 3,
+        })
+        return result.documents[0]
+    } catch (error) {
+        console.error("Error searching vectors in collection:", error);
+    }
+}
