@@ -1,6 +1,8 @@
-import { OpenAI } from "openai";
+import OpenAI  from "openai";
 import { embeddingService } from "./embeddingService.js";
 import { searchVectorsDB } from "./vectorService.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const openai = new OpenAI({
   apiKey: process.env.GROQ_API_KEY,
@@ -18,8 +20,8 @@ export const askRag = async (question) => {
 
     // 3. Send to LLM
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      message: [
+      model: "llama3-8b-8192",
+      messages: [
         {
           role: "system",
           content:

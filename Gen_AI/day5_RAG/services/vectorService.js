@@ -1,9 +1,12 @@
 import { ChromaClient } from "chromadb";
 
-const client = new ChromaClient();
+const client = new ChromaClient({
+    path: "http://localhost:8000",
+});
 
 export const vectorServiceCollection = await client.getOrCreateCollection({
   name: "knowledge",
+  embeddingFunction: null,
 });
 
 export const addVectorsToCollection = async (id, text, embeddings) => {
