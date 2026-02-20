@@ -1,0 +1,7 @@
+JWT authentication is a token-based authentication system.
+It works by generating a signed token after login.
+
+RAG stands for Retrieval Augmented Generation.
+It improves LLM responses using vector databases.
+
+Embeddings convert text into numerical vectors.

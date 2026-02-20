@@ -2,19 +2,19 @@ import { askRag } from "../services/ragService.js";
 
 export const chatController = async (req, res) => {
   try {
-    const { message } = req.body;
+    const { question } = req.body;
 
-    if (!message) {
-      return res.status(400).json({ error: "Message is required" });
-    }
+    // if (!question) {
+    //   return res.status(400).json({ error: "Question is required" });
+    // }
 
-    const answer = await askRag(message);
+    const answer = await askRag(question);
 
     res
       .status(200)
       .json({
-        message: "Message received successfully",
-        receivedMessage: answer,
+        message: "Question received successfully",
+        receivedAnswer: answer,
       });
   } catch (error) {
     console.error("Error handling chat message:", error);

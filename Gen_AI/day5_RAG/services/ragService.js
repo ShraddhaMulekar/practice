@@ -1,4 +1,4 @@
-import OpenAI  from "openai";
+import OpenAI from "openai";
 import { embeddingService } from "./embeddingService.js";
 import { searchVectorsDB } from "./vectorService.js";
 import dotenv from "dotenv";
@@ -16,11 +16,12 @@ export const askRag = async (question) => {
 
     //2. Retrieve context
     const context = await searchVectorsDB(queryEmbedding);
-    const contextText = context.join("\n");
+    const contextText =
+      context && context.length > 0 ? context.join("\n") : "No context found";
 
     // 3. Send to LLM
     const response = await openai.chat.completions.create({
-      model: "llama3-8b-8192",
+      model: "openai/gpt-oss-20b",
       messages: [
         {
           role: "system",
@@ -39,6 +40,10 @@ export const askRag = async (question) => {
         },
       ],
     });
+
+    console.log("Question:", question);
+    console.log("Embedding length:", queryEmbedding?.length);
+    console.log("Context:", context);
 
     return response.choices[0].message.content;
   } catch (error) {
