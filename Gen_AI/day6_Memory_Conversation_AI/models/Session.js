@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const SessionSchema = new mongoose.Schema(
   {
+    _id: String,
     userId: String,
     title: String,
   },

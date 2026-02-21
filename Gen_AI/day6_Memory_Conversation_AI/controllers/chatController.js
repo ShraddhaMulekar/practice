@@ -10,7 +10,7 @@ export const chatController = async (req, res) => {
     const { userId, sessionId, message } = req.body;
 
     // create session if it doesn't exist
-    let session = SessionModel.findById(sessionId);
+    let session = await SessionModel.findById(sessionId);
 
     if (!session) {
       session = await SessionModel.create({
@@ -51,6 +51,7 @@ export const chatController = async (req, res) => {
 
     return res.status(200).json({ response: aiResponse });
   } catch (error) {
+    console.log({error})
     res
       .status(500)
       .json({ message: "Error in chat controller", error: error.message });

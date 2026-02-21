@@ -22,5 +22,5 @@ export const buildContext = async (userId, sessionId, message) => {
         })
     }
 
-    return message
+    return messages
 };

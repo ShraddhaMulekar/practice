@@ -1,36 +1,48 @@
 import { ChromaClient } from "chromadb";
 import { createEmbedding } from "./embeddingService.js";
 
-const client = new ChromaClient()
+const client = new ChromaClient({
+  path: "http://localhost:8000",
+});
 
-// Function to create a collection for storing story memories
-export const createCollection = async () => {
-    return client.getOrCreateCollection({
-        name: "memory",
-    })
+let collection = null;
+
+// create collection safely
+async function getCollection() {
+  if (!collection) {
+    collection = await client.getOrCreateCollection({
+      name: "memory",
+      embeddingFunction: null, 
+    });
+  }
+  return collection;
 }
 
-// Function to add a story to the memory collection
-export const StoryMemory = async (id, text)=>{
-    const collection = await createCollection()
-    const embedding = await createEmbedding(text)
+// STORE MEMORY
+export async function StoryMemory(id, text) {
+  if (!text || typeof text !== "string") return;
 
-    await collection.add({
-        ids: [id],
-        documents: [text],
-        embeddings: [embedding]
-    })
+  const col = await getCollection();
+  const embedding = await createEmbedding(text);
+
+  await col.add({
+    ids: [id],
+    documents: [text],
+    embeddings: [embedding],
+  });
 }
 
-// Function to search the memory collection for relevant stories based on a query
-export const searchMemory = async (query)=>{
-    const collection = await createCollection()
-    const embedding = await createEmbedding(query)
+// SEARCH MEMORY
+export async function searchMemory(query) {
+  if (!query || typeof query !== "string") return [];
 
-    const result = await collection.query({
-        queryEmbeddings: [embedding],
-        nResults: 3,
-    })
+  const col = await getCollection();
+  const embedding = await createEmbedding(query);
 
-    return result.documents[0] || []
+  const result = await col.query({
+    queryEmbeddings: [embedding],
+    nResults: 3,
+  });
+
+  return result.documents?.[0] || [];
 }
