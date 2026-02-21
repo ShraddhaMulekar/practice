@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.use("/chat", chatRoutes)
+app.use("/ai", chatRoutes)
 
 app.listen(port, ()=>{
     console.log(`Server started on http://localhost:${port}`)
