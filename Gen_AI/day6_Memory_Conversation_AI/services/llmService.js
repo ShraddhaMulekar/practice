@@ -12,6 +12,8 @@ export const generateLLM = async (messages) => {
   const response = await client.chat.completions.create({
     model: "openai/gpt-oss-20b",
     messages: messages,
+    temperature: 0.7,
+    max_tokens: 800,
   });
 
   return response.choices[0].message.content;

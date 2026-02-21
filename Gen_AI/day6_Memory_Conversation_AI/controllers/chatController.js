@@ -49,7 +49,7 @@ export const chatController = async (req, res) => {
     // store semantic memory
     await StoryMemory(uuid(), message);
 
-    return res.status(200).json({ response: aiResponse });
+    return res.status(200).json({ success: true, message: message, response: aiResponse });
   } catch (error) {
     console.log({error})
     res
