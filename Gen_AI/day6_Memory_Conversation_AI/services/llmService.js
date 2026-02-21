@@ -7,6 +7,7 @@ const client = new OpenAI({
   baseURL: "https://api.groq.com/openai/v1",
 });
 
+// This function takes an array of messages and returns the response from the LLM.
 module.exports = async (messages) => {
   const response = await client.chat.completions.create({
     model: "openai/gpt-oss-20b",
