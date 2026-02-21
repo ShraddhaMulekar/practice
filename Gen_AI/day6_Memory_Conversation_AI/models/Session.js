@@ -11,4 +11,4 @@ const SessionSchema = new mongoose.Schema(
   },
 );
 
-export const SessionModel = model("Session", SessionSchema);
+export const SessionModel = mongoose.model("Session", SessionSchema);

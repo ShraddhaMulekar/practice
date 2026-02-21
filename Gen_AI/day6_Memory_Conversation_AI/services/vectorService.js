@@ -1,6 +1,5 @@
-import { createEmbedding } from "./embeddingService";
-
-const { ChromaClient } = require("chromadb");
+import { ChromaClient } from "chromadb";
+import { createEmbedding } from "./embeddingService.js";
 
 const client = new ChromaClient()
 

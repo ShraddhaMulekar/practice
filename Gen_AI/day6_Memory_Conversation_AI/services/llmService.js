@@ -8,7 +8,7 @@ const client = new OpenAI({
 });
 
 // This function takes an array of messages and returns the response from the LLM.
-module.exports = async (messages) => {
+export const generateLLM = async (messages) => {
   const response = await client.chat.completions.create({
     model: "openai/gpt-oss-20b",
     messages: messages,
