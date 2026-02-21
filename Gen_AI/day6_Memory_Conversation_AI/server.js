@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.use("/ai", chatRoutes )
+
 app.listen(port, ()=>{
     console.log(`Server is running on http://localhost:${port}`);
 })
