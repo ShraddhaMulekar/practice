@@ -2,7 +2,7 @@ import { runAgent } from "../agent/agent.js"
 
 export const agentController = async(req, res)=>{
     try {
-        const {question} = req.body
+        const {question} = req.body || {}
 
         if(!question){
             return res.status(400).json({message: "Question is required"})

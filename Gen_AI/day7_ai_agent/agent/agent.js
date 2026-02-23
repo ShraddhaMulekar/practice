@@ -13,7 +13,7 @@ export const runAgent = async (userInput)=>{
     let thoughts = ""
 
     try {
-        if(userInput.includes("*") || userInput.includes("+")){
+        if(/[0-9]+\s*[\+\-\*\/]\s*[0-9]+/.test(userInput)){
             thoughts = calculator(userInput)
         } else if(userInput.toLowerCase().includes("policy")){
             thoughts = docSearch(userInput)
