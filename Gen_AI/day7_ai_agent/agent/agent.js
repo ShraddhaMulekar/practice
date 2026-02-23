@@ -18,7 +18,7 @@ export const runAgent = async (userInput)=>{
         } else if(userInput.toLowerCase().includes("policy")){
             thoughts = docSearch(userInput)
         } else{
-            const response = await client.responses.create({
+            const response = await client.chat.completions.create({
                 model: "openai/gpt-oss-20b",
                 messages: [{ role: "user", content: userInput }]            
             });

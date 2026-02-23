@@ -1,3 +1,77 @@
-Company policy:
-Employees get 20 paid leaves yearly.
-Work from home allowed twice a week.
+COMPANY POLICY DOCUMENT
+
+--------------------------------------------------
+1. Working Hours
+--------------------------------------------------
+- Standard working hours are 9:30 AM to 6:30 PM, Monday to Friday.
+- Employees are expected to complete 8 working hours per day.
+- Flexible login is allowed between 9:00 AM and 10:30 AM.
+- Overtime work must be approved by the reporting manager.
+
+--------------------------------------------------
+2. Leave Policy
+--------------------------------------------------
+- Employees are entitled to 20 paid leaves per year.
+- Paid leaves include casual leave, sick leave, and personal leave.
+- Unused leaves can be carried forward up to 10 days to the next year.
+- Leave requests must be applied through the HR portal.
+- Emergency leave should be informed to the manager as early as possible.
+
+--------------------------------------------------
+3. Work From Home Policy
+--------------------------------------------------
+- Employees are allowed to work from home twice a week.
+- Work from home requires prior approval from the team manager.
+- Employees must remain available online during working hours.
+- Internet connectivity and a proper working environment are required.
+
+--------------------------------------------------
+4. Code of Conduct
+--------------------------------------------------
+- Employees must maintain professional behavior at all times.
+- Harassment, discrimination, or misconduct is strictly prohibited.
+- Company assets must be used responsibly.
+- Confidential company data must not be shared externally.
+
+--------------------------------------------------
+5. Attendance Policy
+--------------------------------------------------
+- Employees must mark attendance daily through the company system.
+- Late login more than 3 times per month may require manager discussion.
+- Continuous absence without notice for 3 days may lead to disciplinary action.
+
+--------------------------------------------------
+6. Performance Evaluation
+--------------------------------------------------
+- Performance reviews are conducted twice a year.
+- Evaluations are based on productivity, teamwork, and innovation.
+- Employees receive feedback and growth plans after evaluation.
+
+--------------------------------------------------
+7. IT and Security Policy
+--------------------------------------------------
+- Company laptops must be used only for professional purposes.
+- Unauthorized software installation is not allowed.
+- Passwords must not be shared with anyone.
+- Employees must report security incidents immediately.
+
+--------------------------------------------------
+8. Communication Guidelines
+--------------------------------------------------
+- Official communication should happen via company email or approved tools.
+- Respectful communication is mandatory across all teams.
+- Meetings should be attended on time.
+
+--------------------------------------------------
+9. Compensation and Benefits
+--------------------------------------------------
+- Salary is credited on the last working day of each month.
+- Health insurance benefits are provided to full-time employees.
+- Employees are eligible for annual performance bonuses.
+
+--------------------------------------------------
+10. Termination Policy
+--------------------------------------------------
+- Employees must provide a 30-day notice period before resignation.
+- Company reserves the right to terminate employment in case of policy violations.
+- Exit formalities must be completed before final settlement.
