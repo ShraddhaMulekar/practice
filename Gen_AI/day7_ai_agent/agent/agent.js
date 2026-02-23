@@ -1,6 +1,8 @@
 import OpenAI from "openai";
 import { calculator } from "../tools/calculator.js";
 import { docSearch } from "../tools/docSearch.js";
+import dotenv from "dotenv";
+dotenv.config()
 
 const client = new OpenAI({
     apiKey: process.env.GROQ_API_KEY,
