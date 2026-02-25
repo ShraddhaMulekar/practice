@@ -9,25 +9,33 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [history, setHistory] = useState([]);
 
-  const handleSend = () => {
+  const handleSend = async() => {
     const trimmed = input.trim();
     if (!trimmed) return;
 
-    // add user message
-    const nextMessages = [...messages, { role: "user", text: trimmed }];
-    setMessages(nextMessages);
-
-    // fake AI reply (for demo)
-    const aiReply = {
-      role: "assistant",
-      text: `Echo: ${trimmed}`,
-    };
-    setMessages([...nextMessages, aiReply]);
-
-    // store question in history
+    const userMsg = { role: "user", text: trimmed };
+    setMessages((prev) => [...prev, userMsg]);
     setHistory((prev) => [trimmed, ...prev]);
-
     setInput("");
+
+    try {
+      const res = await fetch(`${basic_url}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed }),
+      });
+      const data = await res.json();
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: data.reply || "No reply" },
+      ]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: "Error talking to server." },
+      ]);
+    }
   };
 
   const handleKeyDown = (e) => {
