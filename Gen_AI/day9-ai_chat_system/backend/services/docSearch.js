@@ -8,11 +8,7 @@ export const searchDoc = (query) => {
     const found = words.some((word) => data.toLowerCase().includes(word));
 
     if (found) {
-      return {
-        success: true,
-        message: "Document found",
-        data: data.slice(0, 500),
-      };
+      return data.slice(0, 1500);
     }
 
     return {
