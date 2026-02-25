@@ -26,7 +26,6 @@ function Chat() {
         body: JSON.stringify({ message: trimmed }),
       });
       const data = await res.json();
-      console.log({data})
 
       setMessages((prev) => [
         ...prev,
@@ -72,7 +71,7 @@ function Chat() {
       </aside>
 
       {/* CHAT AREA */}
-      <section className="flex-1 flex flex-col rounded-2xl border border-slate-800 bg-slate-900/70 shadow-inner">
+      <section className="flex-1 flex h-[70vh] flex-col rounded-2xl border border-slate-800 bg-slate-900/70 shadow-inner">
         {/* Messages area */}
         <div className="flex-1 overflow-y-auto px-4 py-3 space-y-1">
           {messages.length === 0 ? (
@@ -97,7 +96,7 @@ function Chat() {
           <div className="flex items-end gap-2">
             <textarea
               rows={1}
-              className="flex-1 resize-none rounded-xl border border-slate-700 bg-slate-950/80 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/60"
+              className="flex-1 h-12 resize-none rounded-xl border border-slate-700 bg-slate-950/80 px-3 py-2 text-xs leading-snug text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/60"
               placeholder="Ask something about your uploaded docs..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
