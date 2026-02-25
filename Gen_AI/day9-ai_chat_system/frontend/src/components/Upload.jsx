@@ -1,4 +1,31 @@
+import { useState } from "react";
+import { basic_url } from "../basic_url/basic_url";
+
 function Upload() {
+  const [status, setStatus] = useState("");
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file); // "file" must match multer field name
+
+    try {
+      setStatus("Uploading...");
+      const res = await fetch(`${basic_url}/api/upload`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error("Upload failed");
+      const data = await res.json();
+      setStatus(data.message || "Uploaded successfully");
+    } catch (err) {
+      setStatus("Error uploading file");
+    }
+  };
+
   return (
     <div className="rounded-xl border border-dashed border-slate-700 bg-slate-900/60 p-3 text-xs text-slate-200">
       <p className="mb-2 font-semibold text-[11px] tracking-wide text-slate-300">
@@ -9,11 +36,9 @@ function Upload() {
           Drop files here or{" "}
           <span className="text-emerald-300 underline">browse</span>
         </span>
-        <input type="file" multiple className="hidden" />
+        <input type="file" className="hidden" onChange={handleFileChange} />
       </label>
-      <p className="mt-2 text-[10px] text-slate-500">
-        PDFs, text, and notes are supported. (UI only demo)
-      </p>
+      {status && <p className="mt-2 text-[10px] text-slate-400">{status}</p>}
     </div>
   );
 }
