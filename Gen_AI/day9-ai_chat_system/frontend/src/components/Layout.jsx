@@ -26,7 +26,7 @@ const Layout = () => {
               className={({ isActive }) =>
                 `rounded-full px-3 py-1 transition ${
                   isActive
-                    ? "bg-slate-100 text-slate-900"
+                    ? "bg-slate-300 text-slate-900 font-bold"
                     : "text-slate-300 hover:bg-slate-800"
                 }`
               }
@@ -38,7 +38,7 @@ const Layout = () => {
               className={({ isActive }) =>
                 `rounded-full px-3 py-1 transition ${
                   isActive
-                    ? "bg-emerald-400 text-slate-900"
+                    ? "bg-emerald-400 text-slate-900 font-bold"
                     : "text-slate-300 hover:bg-slate-800"
                 }`
               }

@@ -23,13 +23,13 @@ function Home() {
       <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-[#020617] via-[#0b1220] to-[#111827] p-8 shadow-2xl w-full">
         {/* soft gradient glows */}
         <div className="pointer-events-none absolute inset-0 opacity-70">
-          <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-gradient-to-br from-emerald-400 via-teal-300 to-sky-400 blur-3xl" />
+          <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-gradient-to-br from-emerald-500 via-teal-700 to-sky-500 blur-3xl" />
           <div className="absolute -bottom-40 -right-10 h-72 w-72 rounded-full bg-gradient-to-tr from-fuchsia-500 via-violet-400 to-cyan-400 blur-3xl" />
         </div>
 
         <div className="relative z-10 space-y-6 text-slate-100">
           <div>
-            <p className="text-[16px] font-semibold uppercase tracking-[0.35em] text-emerald-300/80">
+            <p className="text-[20px] font-bold uppercase tracking-[0.35em] text-emerald-100/80">
               AI CHAT SYSTEM
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
