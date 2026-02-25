@@ -9,10 +9,23 @@ function Chat() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [history, setHistory] = useState([]);
+  const [hasUploadedDoc, setHasUploadedDoc] = useState(false);
 
-  const handleSend = async() => {
+  const handleSend = async () => {
     const trimmed = input.trim();
     if (!trimmed) return;
+
+    // require at least one successful document upload
+    if (!hasUploadedDoc) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          text: "Please upload a document before starting the chat.",
+        },
+      ]);
+      return;
+    }
 
     const userMsg = { role: "user", text: trimmed };
     setMessages((prev) => [...prev, userMsg]);
@@ -50,7 +63,7 @@ function Chat() {
     <div className="flex w-full gap-4">
       {/* LEFT SIDEBAR: Upload + History */}
       <aside className="hidden md:flex md:w-72 flex-col gap-3">
-        <Upload />
+        <Upload onUploadSuccess={() => setHasUploadedDoc(true)} />
         <div className="flex-1 rounded-xl border border-slate-800 bg-slate-900/60 p-3">
           <p className="mb-2 text-[11px] font-semibold tracking-wide text-slate-300">
             History
@@ -61,7 +74,7 @@ function Chat() {
 
       {/* MOBILE SIDEBAR (stacked) */}
       <aside className="flex flex-col gap-3 md:hidden w-full max-w-xs">
-        <Upload />
+        <Upload onUploadSuccess={() => setHasUploadedDoc(true)} />
         <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-3">
           <p className="mb-2 text-[11px] font-semibold tracking-wide text-slate-300">
             History
@@ -71,7 +84,7 @@ function Chat() {
       </aside>
 
       {/* CHAT AREA */}
-      <section className="flex-1 flex h-[70vh] flex-col rounded-2xl border border-slate-800 bg-slate-900/70 shadow-inner">
+      <section className="flex-1 flex flex-col h-[75vh] rounded-2xl border border-slate-800 bg-slate-900/70 shadow-inner">
         {/* Messages area */}
         <div className="flex-1 overflow-y-auto px-4 py-3 space-y-1">
           {messages.length === 0 ? (
@@ -91,7 +104,7 @@ function Chat() {
             e.preventDefault();
             handleSend();
           }}
-          className="border-t border-slate-800 bg-slate-900/90 px-3 py-2"
+          className="border-t border-slate-800 bg-slate-900/90 px-3 py-2 rounded-2xl"
         >
           <div className="flex items-end gap-2">
             <textarea

@@ -8,7 +8,7 @@ function History({ history = [] }) {
   }
 
   return (
-    <div className="flex h-full flex-col gap-2 overflow-y-auto pr-1 text-xs">
+    <div className="flex flex-col gap-2 overflow-y-auto pr-1 text-xs h-[44vh] ">
       {history.map((item, index) => (
         <button
           key={index}

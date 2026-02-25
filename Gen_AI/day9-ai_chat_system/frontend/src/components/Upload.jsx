@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { basic_url } from "../basic_url/basic_url";
 
-function Upload() {
+function Upload({ onUploadSuccess }) {
   const [status, setStatus] = useState("");
 
   const handleFileChange = async (e) => {
@@ -21,6 +21,7 @@ function Upload() {
       if (!res.ok) throw new Error("Upload failed");
       const data = await res.json();
       setStatus(data.message || "Uploaded successfully");
+      if (onUploadSuccess) onUploadSuccess();
     } catch (err) {
       setStatus("Error uploading file");
     }
