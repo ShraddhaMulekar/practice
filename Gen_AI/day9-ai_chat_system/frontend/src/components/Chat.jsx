@@ -3,6 +3,7 @@ import { SendHorizonal } from "lucide-react";
 import Upload from "./Upload";
 import History from "./History";
 import Message from "./Message";
+import { basic_url } from "../basic_url/basic_url";
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -25,6 +26,7 @@ function Chat() {
         body: JSON.stringify({ message: trimmed }),
       });
       const data = await res.json();
+      console.log({data})
 
       setMessages((prev) => [
         ...prev,
