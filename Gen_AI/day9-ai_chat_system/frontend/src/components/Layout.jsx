@@ -2,20 +2,20 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
-      {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-800/80 backdrop-blur">
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+      {/* NAVBAR */}
+      <header className="border-b border-slate-800 bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 via-cyan-400 to-indigo-500 text-sm font-bold">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-950/80 text-sm font-bold">
               AI
             </span>
             <div>
-              <h1 className="text-lg font-semibold tracking-tight">
+              <h1 className="text-lg font-semibold tracking-tight text-slate-950">
                 AI Chat System
               </h1>
-              <p className="text-xs text-slate-400">
-                Docs, chat, and history in one place
+              <p className="text-xs text-slate-900/80">
+                Upload · Chat · History
               </p>
             </div>
           </div>
@@ -24,10 +24,10 @@ const Layout = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `rounded-full px-3 py-1 transition ${
+                `rounded-full px-3 py-1 text-xs font-medium transition ${
                   isActive
-                    ? "bg-slate-300 text-slate-900 font-bold"
-                    : "text-slate-300 hover:bg-slate-800"
+                    ? "bg-slate-950 text-emerald-300"
+                    : "bg-slate-900/40 text-slate-100 hover:bg-slate-900/70"
                 }`
               }
             >
@@ -36,10 +36,10 @@ const Layout = () => {
             <NavLink
               to="/chat"
               className={({ isActive }) =>
-                `rounded-full px-3 py-1 transition ${
+                `rounded-full px-3 py-1 text-xs font-medium transition ${
                   isActive
-                    ? "bg-emerald-400 text-slate-900 font-bold"
-                    : "text-slate-300 hover:bg-slate-800"
+                    ? "bg-slate-950 text-cyan-300"
+                    : "bg-slate-900/40 text-slate-100 hover:bg-slate-900/70"
                 }`
               }
             >
@@ -49,21 +49,20 @@ const Layout = () => {
         </div>
       </header>
 
-      {/* Main routed content */}
+      {/* MAIN AREA */}
       <main className="mx-auto flex w-full max-w-6xl flex-1 px-4 py-6">
         <Outlet />
       </main>
 
       {/* FOOTER */}
-      <footer className="mt-auto border-t border-slate-800 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-indigo-500">
+      <footer className="mt-auto border-t border-slate-800 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-emerald-500">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-[11px] text-slate-950">
-          <span className="text-[12px]">AI CHAT SYSTEM  · Tailwind UI</span>
-          <span className="opacity-80 text-[14px]">Powered by your documents</span>
+          <span>AI_CHAT_SYSTEM · Tailwind UI</span>
+          <span className="opacity-80">Powered by your documents</span>
         </div>
       </footer>
-      
     </div>
   );
 };
 
-export default Layout
+export default Layout;
