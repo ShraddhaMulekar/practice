@@ -1,7 +1,7 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import Chat from "./components/Chat";
 import History from "./components/History";
 import Message from "./components/Message";
