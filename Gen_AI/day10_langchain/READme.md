@@ -1,0 +1,1 @@
+for activate virtual envionment: venv\Scripts\activate
