@@ -1,6 +1,5 @@
 from pydantic import BaseModel
-from langchain.output_parsers import PydanticOutputParser
-
+from langchain_core.output_parsers import PydanticOutputParser
 class Summary(BaseModel):
     topic : str
     Summary : str

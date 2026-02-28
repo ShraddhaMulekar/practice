@@ -2,4 +2,5 @@ langchain
 langchain-openai
 python-dotenv
 pydantic
+langchain.output_parsers
 uvicorn
