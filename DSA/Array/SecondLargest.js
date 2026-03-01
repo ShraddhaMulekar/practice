@@ -1,3 +1,5 @@
+// Find Second Largest Number
+
 let arr = [2, 8, 9, 6];
 // Output: 8
 
