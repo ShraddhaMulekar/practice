@@ -11,4 +11,7 @@ for(let i=0; i<str.length; i++){
         freq[str[i]]++
     }
 }
+let char = freq["p"]  //check the value of "p"
+console.log({char})
+
 console.log(freq)
