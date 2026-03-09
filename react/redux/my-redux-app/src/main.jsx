@@ -2,10 +2,11 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import {Provider} from "react-redux"
-import { counterStore } from './app/counterStore.jsx'
+// import { counterStore } from './app/counterStore.jsx'
+import { todoStore } from './app/todoStore.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={counterStore}>
+  <Provider store={todoStore}>
     <App />
   </Provider>,
 )
