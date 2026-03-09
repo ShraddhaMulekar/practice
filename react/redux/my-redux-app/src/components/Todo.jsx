@@ -5,11 +5,7 @@ import { addTodo, editTodo, deleteTodo } from "../features/todo/TodoSlice";
 const Todo = () => {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todo.todos);
-
-  const handleAdd = () => {
-    dispatch(addTodo(text));
-  };
+  const todos = useSelector((state) => state.todo.todos);   //todo get from store
 
   const handleEdit = (index) => {
     const newText = prompt("Enter your text");
@@ -28,7 +24,9 @@ const Todo = () => {
 
       <input type="text" onChange={(e) => setText(e.target.value)} />
 
-      <button onClick={handleAdd}>Add</button>
+      <button onClick={()=>dispatch(addTodo(text))}>
+        Add
+    </button>
 
       <ul>
         {todos.map((todo, index) => (
@@ -39,7 +37,9 @@ const Todo = () => {
               Edit
             </button>
 
-            <button onClick={() => dispatch(deleteTodo(index))}>Delete</button>
+            <button onClick={() => dispatch(deleteTodo(index))}>
+                Delete
+            </button>
           </li>
         ))}
       </ul>
