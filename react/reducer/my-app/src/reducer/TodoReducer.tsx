@@ -1,4 +1,4 @@
-export const initialState = {
+export const initialTodo = {
     todos : []
 }
 
@@ -15,18 +15,16 @@ export const TodoReducer = (state, action) => {
 
     case "DELETE_TODO":
         return{
-            todos :[
-                ...state.todos,
-                action.payload
-            ]
+            todos : state.todos.filter((todo, i)=>i !== action.payload)            
         }
 
     case "EDIT_TODO":
         return{
-            todos:[
-                ...state.todos,
-                action.payload
-            ]
+               todos : state.todos.map((todo, index)=>(
+                index === action.payload.index ?
+                action.payload.text :
+                todo
+               ))
         }
   
     default:
