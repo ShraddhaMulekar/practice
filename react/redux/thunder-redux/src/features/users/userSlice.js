@@ -4,7 +4,6 @@ export const fetchUser = createAsyncThunk(
     "users/fetchUser",
 
     async ()=>{
-        const response = await fetch("https://jsonplaceholder.typicode.com/users")
         const data = await response.json()
         return data
     }
@@ -19,7 +18,15 @@ const userSlice = createSlice({
         error : null
     },
 
-    reducers : {},
+    reducers : {
+        addUser : (state, action)=>{
+            state.users.push(action.payload)
+        },
+
+        deleteUser : (state, action)=>{
+            state.users = state.users.filter((user)=> user.id !== action.payload)
+        }
+    },
 
     extraReducers : (builder)=>{
         builder
