@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchUsersAPI } from "./userAPI";
 
 export const fetchUser = createAsyncThunk(
     "users/fetchUser",
 
     async ()=>{
-        const data = await response.json()
+        const data = await fetchUsersAPI()
         return data
     }
 )
@@ -46,5 +47,7 @@ const userSlice = createSlice({
         })
     }
 })
+
+export const {addUser, deleteUser} = userSlice.actions
 
 export default userSlice.reducer

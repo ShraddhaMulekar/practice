@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { fetchUser } from "../features/users/userSlice"
+import { deleteUser, fetchUser } from "../features/users/userSlice"
 
 export const UserList = ()=>{
 
@@ -19,9 +19,13 @@ export const UserList = ()=>{
             {error && <p>{error}</p>}
 
             <ul>
-                {users?.map((user, index)=>(
-                    <li key={index}>
+                {users?.map((user)=>(
+                    <li key={user.id}>
                         {user.name}
+
+                        <button onClick={()=>dispatch(deleteUser(user.id))}>
+                            Delete
+                        </button>
                     </li>
                 ))}
             </ul>
